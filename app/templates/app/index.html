@@ -1,0 +1,8 @@
+<!-- app/templates/app/index.html -->
+<h1>Lista de Posts</h1>
+{% for post in posts %}
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.content | safe }}</p>
+    <p>Data de Postagem: {{ post.pub_date | date }}</p>
+    <hr>
+{% endfor %}

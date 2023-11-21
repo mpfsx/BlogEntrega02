@@ -1,0 +1,7 @@
+# .gitignore
+
+# Arquivos específicos
+db.sqlite3
+
+# Diretórios específicos
+__pycache__/
