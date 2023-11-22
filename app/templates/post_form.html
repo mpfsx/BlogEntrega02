@@ -1,0 +1,12 @@
+<!-- app/post_form.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Criar/Editar Post</h1>
+  <form method="post" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar</button>
+  </form>
+  <a href="{% url 'post_list' %}">Voltar para a lista de posts</a>
+{% endblock %}

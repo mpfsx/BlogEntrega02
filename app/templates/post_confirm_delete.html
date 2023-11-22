@@ -1,0 +1,12 @@
+<!-- app/post_confirm_delete.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Confirmar Exclusão</h1>
+  <p>Você tem certeza que deseja excluir o post "{{ post.titulo }}"?</p>
+  <form method="post" action="{% url 'post_delete' pk=post.pk %}">
+    {% csrf_token %}
+    <button type="submit">Sim, excluir</button>
+  </form>
+  <a href="{% url 'post_list' %}">Cancelar e voltar para a lista de posts</a>
+{% endblock %}
