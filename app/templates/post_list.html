@@ -4,6 +4,6 @@
 {% block content %}
   <h1>Lista de Posts</h1>
   {% for post in posts %}
-    <p><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }}</a></p>
+    <p><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></p>
   {% endfor %}
 {% endblock %}
