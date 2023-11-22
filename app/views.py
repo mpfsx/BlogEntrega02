@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
+from .forms import PostForm
+
 
 # Inicio
 def index(request):
@@ -40,3 +42,21 @@ def post_delete(request, pk):
         return redirect('post_list')
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'app/post_confirm_delete.html', {'post': post})
+
+# Versão 2: Utilizando Django forms para operações CRUD
+class PostCreateView(CreateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'app/post_form.html'
+    success_url = '/app/post_list/'
+
+class PostUpdateView(UpdateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'app/post_form.html'
+    success_url = '/app/post_list/'
+
+class PostDeleteView(DeleteView):
+    model = Post
+    template_name = 'app/post_confirm_delete.html'
+    success_url = '/app/post_list/'
